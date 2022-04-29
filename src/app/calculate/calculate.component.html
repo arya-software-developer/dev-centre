@@ -5,7 +5,7 @@
       <form [formGroup]="employeeStructure" (ngSubmit)="onCalculate()">
 
         <div formArrayName="managers">
-          <div class="row">
+          <div class="row take">
             <div class="col-xs-6">
               <button type="button" class="btn btn-warning" (click)="addManager()" [disabled]="employeeAdded">Add Manager</button>
 
