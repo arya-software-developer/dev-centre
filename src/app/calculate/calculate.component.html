@@ -37,7 +37,7 @@
 
         </div>
 
-      <button type="submit" [disabled]="!employeeAdded && !managerAdded" *ngIf="managerAdded">Calculate</button>
+      <button type="submit" [disabled]="!employeeAdded && !managerAdded" class="btn btn-success">Calculate</button>
       </form>
 <p *ngIf="isSubmitted">Total Allocation: {{totalExpense|currency:'USD'}}</p>
 
