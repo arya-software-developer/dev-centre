@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row employee-details">
+    <div class="col-xs-12">
+      <h4 class="calculate-heading">Calculate Monthly Expense Allocation</h4>
+      <form [formGroup]="employeeStructure" (ngSubmit)="onCalculate()">
+
+        <div formArrayName="managers">
+          <div class="row">
+            <div class="col-xs-6">
+              <button type="button" class="btn btn-warning" (click)="addManager()" [disabled]="employeeAdded">Add Manager</button>
+
+            </div>
+            <div class="col-xs-6">
+              <button type="button" class="btn btn-warning" (click)="addEmployees()">Add Employees</button>
+
+            </div>
+          </div>
+
+
+          <div class="form-group" *ngFor="let m of getEmployee(); let i = index">
+            <div [formGroupName]="i">
+
+              <input type="text" formControlName="submanager" class="form-control" value="i" >
+            </div>
+          </div>
+        </div>
+        <div formGroupName="employees" *ngIf="employeeAdded">
+          <div class="form-group">
+            <label for="developers"  >Number of Developers:</label>
+
+            <input type="number" formControlName="developers" id="developers" min="0"  (input)="checkValue($event)">
+          </div>
+          <div class="form-group">
+            <label for="tester"  >Number of QA Testers:</label>
+            <input type="number" formControlName="tester" id="tester" min="0"  (input)="checkValue($event)">
+          </div>
+
+        </div>
+
+      <button type="submit" [disabled]="!employeeAdded && !managerAdded" *ngIf="managerAdded">Calculate</button>
+      </form>
+<p *ngIf="isSubmitted">Total Allocation: {{totalExpense|currency:'USD'}}</p>
+
+    </div>
+  </div>
+</div>

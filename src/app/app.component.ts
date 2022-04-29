@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'monthly-expense';
+ mode1 = true;
+  onchangeMode(){
+this.mode1 = !this.mode1;
+  }
 }
