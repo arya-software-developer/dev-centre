@@ -4,7 +4,7 @@
       <form class="form-horizontal" #f=ngForm (ngSubmit)="onCalculate(f)">
 
         <div class="form-group">
-          <label for="managers" class="col-sm-4 col-sm-offset-2 control-label" >Number of Managers:</label>
+          <label for="managers" class="col-sm-4 col-sm-offset-2 control-label " >Number of Managers:</label>
           <div class="col-sm-2">
             <input type="number" min="0" class="form-control" id="managers" placeholder="0" ngModel name="managers"  required #manager="ngModel" (input)="checkValue($event)">
             <span class="help-block" *ngIf="!manager.valid && manager.touched">Please enter a value</span>
